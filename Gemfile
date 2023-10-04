@@ -70,3 +70,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem "omniauth-twitter2", "~> 0.1.0"
+
+gem "omniauth-twitter", "~> 1.4"
