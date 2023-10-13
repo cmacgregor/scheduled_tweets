@@ -8,5 +8,6 @@ Tweet scheduling web application written in Ruby on Rails
 - Pretty up the Navbar
 
 ##Possible Roadmap: 
+- Allow media posts to twitter
 - Including facebook
 - Monetization (for funsies)
