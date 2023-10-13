@@ -73,7 +73,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    buftok (0.3.0)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.39.2)
       addressable
       matrix
@@ -84,20 +86,36 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.11)
     erubi (1.12.0)
     faraday (2.7.11)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.16.3)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
+    http (5.1.1)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -111,6 +129,9 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.7.1)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -121,11 +142,15 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
     multi_xml (0.6.0)
+    multipart-post (2.3.0)
+    naught (1.1.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -212,6 +237,8 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redis-client (0.17.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.8)
       io-console (~> 0.5)
@@ -222,6 +249,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.1.6)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
+    simple_oauth (0.3.1)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -237,13 +270,28 @@ GEM
       railties (>= 6.0.0)
     stringio (3.0.8)
     thor (1.2.2)
+    thread_safe (0.3.6)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    twitter (8.0.1)
+      addressable (~> 2.3)
+      buftok (~> 0.3.0)
+      equalizer (~> 0.0.11)
+      http (~> 5.1)
+      http-form_data (~> 2.3)
+      llhttp-ffi (~> 0.4.0)
+      memoizable (~> 0.4.0)
+      multipart-post (~> 2.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     version_gem (1.1.3)
     web-console (4.2.1)
       actionview (>= 6.0.0)
@@ -258,6 +306,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    x (0.10.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
@@ -268,6 +317,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  byebug (~> 11.1)
   capybara
   debug
   importmap-rails
@@ -278,13 +328,16 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.6)
   selenium-webdriver
+  sidekiq (~> 7.1)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
+  twitter (~> 8.0)
   tzinfo-data
   web-console
   webdrivers
+  x (~> 0.10.0)
 
 RUBY VERSION
    ruby 3.2.2p53

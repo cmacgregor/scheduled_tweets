@@ -77,3 +77,11 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth-twitter2", "~> 0.1.0"
 
 gem "omniauth-twitter", "~> 1.4"
+
+gem "twitter", "~> 8.0"
+
+gem "x", "~> 0.10.0"
+
+gem "byebug", "~> 11.1"
+
+gem "sidekiq", "~> 7.1"
